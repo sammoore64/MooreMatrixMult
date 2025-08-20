@@ -23,10 +23,23 @@
 #5. Inner Product of Outer Products
 
 
+#' Multiply 2 Matrices using Base R Commands
+#'
+#' @param A An n by m matrix
+#' @param B An m by p matrix
+#'
+#' @returns The product of the 2 matrices AB which will be an n by p matrix
+#' @export
+#'
+#' @examples
+#' A <- matrix(1:4, 2, 2)
+#' B <- matrix(5:8, 2, 2)
+#' mult.base(A,B)
 mult.base <- function(A,B){
 
 
 }
+
 
 mult.textbook <- function(A,B) {
 
