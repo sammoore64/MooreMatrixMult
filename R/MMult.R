@@ -42,9 +42,38 @@ return(A%*%B)
 }
 
 
+#' Textbook definition of matrix multiplication
+#'
+#' @param A An n by m matrix
+#' @param B An m by p matrix
+#'
+#' @returns The product of the 2 matrices AB which will be an n by p matrix
+#' @export
+#'
+#' @examples
 mult.textbook <- function(A,B) {
 
+  n <- nrow(A)
+  mA <- ncol(A)
+  mB <- nrow(B)
+  p <- ncol(B)
 
+  # Check for dimension compatibility
+  if (mA != mB) {
+    stop("Double Check Dimensions")
+  }
+
+  C <- matrix(0, nrow = n, ncol = p)
+
+  for (i in 1:n) {
+    for (j in 1:p) {
+      for (k in 1:mA) {
+        C[i, j] <- C[i, j] + A[i, k] * B[k, j]
+      }
+    }
+  }
+
+  return(C)
 
 }
 
