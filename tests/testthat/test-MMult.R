@@ -65,7 +65,7 @@ test_that("Method 4 Works",{
 
 
 
-test_that("Method 2 Works",{
+test_that("Method 5 Works",{
   A <- matrix(1:4, nrow = 2, ncol = 2)
   B <- matrix(1:6, nrow = 2, ncol = 3)
   # computed by hand
