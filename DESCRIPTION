@@ -15,3 +15,6 @@ Description: STOR 664 discusses 5 different methods of matrix multiplication.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
