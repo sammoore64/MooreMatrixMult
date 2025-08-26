@@ -37,6 +37,7 @@
 #' mult.base(A,B)
 mult.base <- function(A,B){
 
+return(A%*%B)
 
 }
 
