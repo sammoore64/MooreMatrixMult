@@ -80,12 +80,45 @@ mult.textbook <- function(A,B) {
 
 mult.LeftDist <- function (A,B) {
 
+  n <- nrow(A)
+  mA <- ncol(A)
+  mB <- nrow(B)
+  p <- ncol(B)
 
+  # Check for dimension compatibility
+  if (mA != mB) {
+    stop("Double Check Dimensions")
+  }
+
+  C <- matrix(0, nrow = n, ncol = p)
+
+  for (j in 1:p){
+      C[, j] <- A %*% B[, j]
+  }
+
+  return(C)
 }
 
-mult.DistRight <- function (A,B) {
+mult.RightDist <- function (A,B) {
 
 
+  n <- nrow(A)
+  mA <- ncol(A)
+  mB <- nrow(B)
+  p <- ncol(B)
+
+  # Check for dimension compatibility
+  if (mA != mB) {
+    stop("Double Check Dimensions")
+  }
+
+  C <- matrix(0, nrow = n, ncol = p)
+
+  for (i in 1:n){
+    C[i, ] <- A[i, ] %*% B
+  }
+
+  return(C)
 }
 
 
