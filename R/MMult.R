@@ -125,9 +125,56 @@ mult.RightDist <- function (A,B) {
 mult.OuterInner <- function (A,B) {
 
 
+  n <- nrow(A)
+  mA <- ncol(A)
+  mB <- nrow(B)
+  p <- ncol(B)
+
+  # Check for dimension compatibility
+  if (mA != mB) {
+    stop("Double Check Dimensions")
+  }
+
+  C <- matrix(0, nrow = n, ncol = p)
+
+  for (i in 1:n){
+    for(j in 1:p){
+
+      C[i, j] = C[i, j] + A[i, ] %*% B[, j]
+
+    }
+  }
+
+  return(C)
+
 }
 
 mult.InnerOuter <- function (A,B) {
 
+
+  n <- nrow(A)
+  mA <- ncol(A)
+  mB <- nrow(B)
+  p <- ncol(B)
+
+  # Check for dimension compatibility
+  if (mA != mB) {
+    stop("Double Check Dimensions")
+  }
+
+  C <- matrix(0, nrow = n, ncol = p)
+
+  for (i in 1:mA){
+
+
+    Acol <- A[, i, drop = FALSE]
+    Brow <- B[i, , drop = FALSE]
+
+
+    C <- C + (Acol %*% Brow)
+
+  }
+
+  return(C)
 
 }
